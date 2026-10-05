@@ -62,7 +62,9 @@ def main(argv=None):
     elif args.sample == "round":
         book = Check(4, 10000)
         book.join("lead", 0)
+        book.join("afk", 0)
         book.set_ready("r1", "lead")
+        book.confirm("lead", 0)
         restored = Check(4, 10000)
         restored.load(book.dump())
         print("bypass=%s reqs=%d" % (sorted(restored.bypass_used), len(restored.seen)))
